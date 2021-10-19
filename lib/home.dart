@@ -25,143 +25,141 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      return Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.white60,
+      appBar: AppBar(
         backgroundColor: Colors.white60,
-        appBar: AppBar(
-          backgroundColor: Colors.white60,
-          shadowColor: Colors.white,
-          bottomOpacity: 0,
-          title: Container(
-            height: 60.0,
-            width: 160,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/logo.jpeg'),
-                    fit: BoxFit.fill)),
-          ),
-          actions: const [
-            Icon(
-              Icons.search,
-              color: Colors.black87,
-            ),
-          ],
+        shadowColor: Colors.white,
+        bottomOpacity: 0,
+        title: Container(
+          height: 60.0,
+          width: 160,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/logo.jpeg'),
+                  fit: BoxFit.fill)),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 30,
+        actions: const [
+          Icon(
+            Icons.search,
+            color: Colors.black87,
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          // const SizedBox(
+          //   height: 30,
+          // ),
+          header(),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return options(names[index], imgs[index], prices[index]);
+                }),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 60.0,
+          width: double.maxFinite,
+          decoration: const BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.vertical()),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.home,
+                      color: Colors.orange,
+                    ),
+                    onPressed: () {},
+                  ),
+                  const Text(
+                    "Home",
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 8,
+                    ),
+                  ),
+                ],
               ),
-              header(),
-              ListView.builder(
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return options(names[index], imgs[index], prices[index]);
-                  }),
+              Column(
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.list,
+                      color: Colors.orange,
+                    ),
+                    onPressed: () {},
+                  ),
+                  const Text(
+                    "Catalog",
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 8,
+                    ),
+                  ),
+                ],
+              ),
+              Column(children: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.shopping_bag,
+                    color: Colors.orange,
+                  ),
+                  onPressed: () {},
+                ),
+                const Text(
+                  "Bag",
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 8,
+                  ),
+                ),
+              ]),
+              Column(children: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.person,
+                    color: Colors.orange,
+                  ),
+                  onPressed: () {},
+                ),
+                const Text(
+                  "Profile",
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 8,
+                  ),
+                ),
+              ]),
+              Column(children: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.more_horiz,
+                    color: Colors.orange,
+                  ),
+                  onPressed: () {},
+                ),
+                const Text(
+                  "More",
+                  style: TextStyle(
+                    color: Colors.orange,
+                    fontSize: 8,
+                  ),
+                ),
+              ]),
             ],
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Container(
-            height: 60.0,
-            width: double.maxFinite,
-            decoration: const BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.vertical()),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.home,
-                        color: Colors.orange,
-                      ),
-                      onPressed: () {},
-                    ),
-                    const Text(
-                      "Home",
-                      style: TextStyle(
-                        color: Colors.orange,
-                        fontSize: 8,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.list,
-                        color: Colors.orange,
-                      ),
-                      onPressed: () {},
-                    ),
-                    const Text(
-                      "Catalog",
-                      style: TextStyle(
-                        color: Colors.orange,
-                        fontSize: 8,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.shopping_bag,
-                      color: Colors.orange,
-                    ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    "Bag",
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 8,
-                    ),
-                  ),
-                ]),
-                Column(children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.person,
-                      color: Colors.orange,
-                    ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    "Profile",
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 8,
-                    ),
-                  ),
-                ]),
-                Column(children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.more_horiz,
-                      color: Colors.orange,
-                    ),
-                    onPressed: () {},
-                  ),
-                  const Text(
-                    "More",
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 8,
-                    ),
-                  ),
-                ]),
-              ],
-            ),
-          ),
-        ),
-      );
-    });
+      ),
+    );
   }
 }
 
